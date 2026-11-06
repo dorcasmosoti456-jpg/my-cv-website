@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Website</title>
 
     <style>
         body {
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             background: #eeeeee;
             margin: 0;
         }
@@ -90,10 +92,10 @@
 
     <!-- TOP MENU -->
     <nav>
-        <button onclick="show('home')">Home</button>
-        <button onclick="show('experience')">Personal Experience</button>
-        <button onclick="show('contacts')">Contacts</button>
-        <button onclick="show('hobbies')">Hobbies</button>
+        <button type="button" onclick="show('home')">Home</button>
+        <button type="button" onclick="show('experience')">Personal Experience</button>
+        <button type="button" onclick="show('contacts')">Contacts</button>
+        <button type="button" onclick="show('hobbies')">Hobbies</button>
     </nav>
 
     <!-- NAME -->
@@ -127,55 +129,78 @@
         <p>I hope to gain knowledge and skills in technology and build a successful career after completing my studies.
         </p>
     </section>
-<!-- EXPERIENCE -->
+
+    <!-- EXPERIENCE -->
     <section id="experience" style="display:none">
-      <h2>Personal Experience</h2>
-      <table>
-        <tr>
-          <th>Date</th>
-          <th>Institutions Attended</th>
-          <th>Awards Given</th>
-        </tr>
-        <tr>
-          <td>21/08/2025</td>
-          <td>Kisii University</td>
-          <td>Not given</td>
-        </tr>
-        <tr>
-          <td>02/08/2021</td>
-          <td>Nyamagwa high school</td>
-          <td>certificate</td>
-        </tr>
-        <tr>
-          <td>23/08/2012</td>
-          <td>Borabu primary school</td>
-          <td>trophies</td>
-        </tr>
-      </table>
+
+        <h2>Personal Experience</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Institutions Attended</th>
+                    <th>Awards Given</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>21/08/2025</td>
+                    <td>Kisii University</td>
+                    <td>Not given</td>
+                </tr>
+                <tr>
+                    <td>02/08/2021</td>
+                    <td>Nyamagwa high school</td>
+                    <td>certificate</td>
+                </tr>
+                <tr>
+                    <td>23/08/2012</td>
+                    <td>Borabu primary school</td>
+                    <td>trophies</td>
+                </tr>
+            </tbody>
+        </table>
+
     </section>
 
     <!-- CONTACTS -->
     <section id="contacts" style="display:none">
-      <h2>Contacts</h2>
-      <p>Phone: 0718096477</p>
-      <p>Email: dorcasmosoti456@gmail.com</p>
-      <a href="mailto:dorcasmosoti456@gmail.com">Email me</a>
-      <hr>
-      <h3>Send Me a Message</h3>
-      <form>
-        Enter your Name:<br>
-        <input type="text" required><br><br>
-        E-mail address:<br>
-        <input type="email" required><br><br>
-        Message Subject:<br>
-        <input type="text"><br><br>
-        Enter your Message:<br>
-        <textarea rows="8" cols="35"></textarea><br><br>
-        <input type="checkbox"> E-mail a copy of this message to your own address.<br><br>
-        <input type="submit" value="Send">
-      </form>
+
+        <h2>Contacts</h2>
+
+        <p>Phone: 0718096477</p>
+        <p>Email: dorcasmosoti456@gmail.com</p>
+
+        <a href="mailto:dorcasmosoti456@gmail.com">Email me</a>
+
+        <hr>
+
+        <h3>Send Me a Message</h3>
+
+        <form action="mailto:dorcasmosoti456@gmail.com" method="post" enctype="text/plain">
+            <label for="fname">Enter your Name:</label><br>
+            <input type="text" id="fname" name="Name" required><br><br>
+
+            <label for="femail">E-mail address:</label><br>
+            <input type="email" id="femail" name="Email" required><br><br>
+
+            <label for="fsubject">Message Subject:</label><br>
+            <input type="text" id="fsubject" name="Subject"><br><br>
+
+            <label for="fmsg">Enter your Message:</label><br>
+            <textarea id="fmsg" name="Message" rows="8" cols="35"></textarea><br><br>
+
+            <label>
+                <input type="checkbox" name="Copy">
+                E-mail a copy of this message to your own address.
+            </label><br><br>
+
+            <input type="submit" value="Send">
+        </form>
+
     </section>
- 
+
     <!-- HOBBIES -->
     <section id="hobbies" style="display:none">
 
@@ -199,10 +224,10 @@
 
     <!-- BOTTOM MENU -->
     <nav>
-        <button onclick="show('home')">Home</button>
-        <button onclick="show('experience')">Personal Experience</button>
-        <button onclick="show('contacts')">Contacts</button>
-        <button onclick="show('hobbies')">Hobbies</button>
+        <button type="button" onclick="show('home')">Home</button>
+        <button type="button" onclick="show('experience')">Personal Experience</button>
+        <button type="button" onclick="show('contacts')">Contacts</button>
+        <button type="button" onclick="show('hobbies')">Hobbies</button>
     </nav>
 
     <!-- FOOTER -->
@@ -219,7 +244,10 @@
                 pages[i].style.display = 'none';
             }
 
-            document.getElementById(page).style.display = 'block';
+            let selectedPage = document.getElementById(page);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+            }
         }
     </script>
 
